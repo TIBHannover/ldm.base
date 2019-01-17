@@ -63,6 +63,9 @@ pip install -r src/ckanext-tibtheme/requirements.txt
 RUN pip install -e git+https://github.com/tibhannover/ckanext-videoviewer.git#egg=ckanext-videoviewer && \
 pip install -r src/ckanext-videoviewer/requirements.txt
 ### update production.ini and enable VideoViewer
+#RUN pip install -e git+https://github.com/tibhannover/ckanext-dwgviewer.git#egg=ckanext-dwgviewer && \
+#pip install -r src/ckanext-dwgviewer/requirements.txt
+### update production.ini and enable DrawingViewer
 
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 
