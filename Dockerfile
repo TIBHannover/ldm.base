@@ -57,6 +57,9 @@ RUN ckan-pip install -U pip && \
 RUN pip install -e git+https://github.com/ckan/ckanext-dcat.git#egg=ckanext-dcat && \
 pip install -r src/ckanext-dcat/requirements.txt
 ### update production.ini and enable dcat
+RUN pip install -e git+https://github.com/tibhannover/ckanext-tibtheme.git#egg=ckanext-tibtheme && \
+pip install -r src/ckanext-tibtheme/requirements.txt
+### update production.ini and enable TIBtheme
 
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 
