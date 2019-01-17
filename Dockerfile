@@ -67,6 +67,8 @@ pip install -r src/ckanext-videoviewer/requirements.txt
 #pip install -r src/ckanext-dwgviewer/requirements.txt
 ### update production.ini and enable DrawingViewer
 
+# Install LDM.Custom distribusion specific extensions
+
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 
 USER ckan
