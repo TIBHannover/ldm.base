@@ -53,6 +53,11 @@ RUN ckan-pip install -U pip && \
     chmod +x /ckan-entrypoint.sh && \
     chown -R ckan:ckan $CKAN_HOME $CKAN_VENV $CKAN_CONFIG $CKAN_STORAGE_PATH
 
+# Install LDM.BASE specific extensions
+RUN pip install -e git+https://github.com/ckan/ckanext-dcat.git#egg=ckanext-dcat && \
+pip install -r src/ckanext-dcat/requirements.txt
+### update production.ini and enable dcat
+
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 
 USER ckan
