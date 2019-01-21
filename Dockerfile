@@ -53,6 +53,26 @@ RUN ckan-pip install -U pip && \
     chmod +x /ckan-entrypoint.sh && \
     chown -R ckan:ckan $CKAN_HOME $CKAN_VENV $CKAN_CONFIG $CKAN_STORAGE_PATH
 
+# Install LDM.BASE specific extensions
+
+RUN pip install -e git+https://github.com/ckan/ckanext-dcat.git#egg=ckanext-dcat && \
+pip install -r src/ckanext-dcat/requirements.txt
+### update production.ini and enable dcat
+
+RUN pip install -e git+https://github.com/tibhannover/ckanext-tibtheme.git#egg=ckanext-tibtheme && \
+pip install -r src/ckanext-tibtheme/requirements.txt
+### update production.ini and enable TIBtheme
+
+RUN pip install -e git+https://github.com/tibhannover/ckanext-videoviewer.git#egg=ckanext-videoviewer && \
+pip install -r src/ckanext-videoviewer/requirements.txt
+### update production.ini and enable VideoViewer
+
+RUN pip install -e git+https://github.com/tibhannover/ckanext-dwgviewer.git#egg=ckanext-dwgviewer && \
+pip install -r src/ckanext-dwgviewer/requirements.txt
+### update production.ini and enable DrawingViewer
+
+# Install LDM.Custom distribusion specific extensions
+
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 
 USER ckan
