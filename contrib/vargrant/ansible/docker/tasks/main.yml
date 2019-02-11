@@ -1,0 +1,19 @@
+---
+- name: Install docker.io
+  package:
+    name: docker.io
+    state: present
+
+- name: Install docker-compose
+  package:
+    name: docker-compose
+    state: present
+
+- name: Install pip
+  package:
+    name: python-pip
+    state: present
+
+- name: Install docker-py
+  pip:
+    name: docker-py
