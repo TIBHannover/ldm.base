@@ -3,32 +3,32 @@
   git:
     repo: https://github.com/TIBHannover/ldm.base.git
     version: ldm.base-2.8.2
-    dest: /home/ldm.base
+    dest: /home/vagrant/ldm.base
 
 - name: Build the .env file and set the credentials 
   command: cp .env.template .env
   args:
-    chdir: /home/ldm.base/contrib/docker
+    chdir: /home/vagrant/ldm.base/contrib/docker
 
 # use this with care, the flag removes the volumes from the host.
 - name: Drop all the images and volumes
   command: docker system prune --volumes
   args:
-    chdir: /home/ldm.base/contrib/docker
+    chdir: /home/vagrant/ldm.base/contrib/docker
  
 - name: Remove any existing container as registered in the docker compose file
   command: docker-compose rm -f
   args:
-    chdir: /home/ldm.base/contrib/docker
+    chdir: /home/vagrant/ldm.base/contrib/docker
 
 - name: Build all the docker images as mentioned in the compose file
   command: docker-compose build --force-rm
   args:
-    chdir: /home/ldm.base/contrib/docker
+    chdir: /home/vagrant/ldm.base/contrib/docker
     
 - name: Change address in docker-compose.yml
   lineinfile:
-    dest: '/home/ldm.base/contrib/docker/docker-compose.yml'
+    dest: '/home/vagrant/ldm.base/contrib/docker/docker-compose.yml'
     line: '       CKAN_SITE_URL: "http://192.168.98.106:5000"'
     regexp: 'CKAN_SITE_URL'
 
@@ -38,10 +38,10 @@
 - name: Start the depenencies
   command: docker-compose up -d datapusher redis solr db
   args:
-    chdir: /home/ldm.base/contrib/docker
+    chdir: /home/vagrant/ldm.base/contrib/docker
 
 - name: Start ckan
   command: docker-compose up -d ckan
   args:
-    chdir: /home/ldm.base/contrib/docker
+    chdir: /home/vagrant/ldm.base/contrib/docker
     

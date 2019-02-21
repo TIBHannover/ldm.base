@@ -4,4 +4,4 @@
   roles:
     - git
     - docker
-#    - ckan
+    - ckan
