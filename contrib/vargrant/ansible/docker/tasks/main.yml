@@ -2,17 +2,17 @@
 - name: Install docker.io
   package:
     name: docker.io
-    state: present
+    state: latest
 
 - name: Install docker-compose
   package:
     name: docker-compose
-    state: present
+    state: latest
 
 - name: Install pip
   package:
     name: python-pip
-    state: present
+    state: latest
 
 - name: Install docker-py
   pip:
