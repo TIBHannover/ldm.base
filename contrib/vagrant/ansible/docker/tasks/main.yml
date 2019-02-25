@@ -28,4 +28,4 @@
   get_url: 
     url : https://github.com/docker/compose/releases/download/1.23.2/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}          
     dest: /usr/local/bin/docker-compose
-    mode: 'u+x,g+x'
+    mode: 'u+x,g+x,a+x'
