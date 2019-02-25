@@ -16,21 +16,21 @@
   args:
     chdir: /home/vagrant/ldm.base/contrib/docker
  
-- name: Remove existing containers that are registered in the docker compose file
+- name: Remove existing containers
   command: docker-compose rm -f
   args:
     chdir: /home/vagrant/ldm.base/contrib/docker
 
-- name: Build all the docker images as mentioned in the compose file
+- name: Build docker images
   command: docker-compose build --force-rm
   args:
     chdir: /home/vagrant/ldm.base/contrib/docker
     
-- name: Change address in docker-compose.yml
+- name: Change site's URL in docker-compose.yml
   lineinfile:
     path: '/home/vagrant/ldm.base/contrib/docker/docker-compose.yml'
-    line: '       - CKAN_SITE_URL="http://192.168.98.106:5000"'
-    regexp: '      - CKAN_SITE_URL='
+    line: '      - CKAN_SITE_URL=http://192.168.98.106:5000
+    regexp: '     - CKAN_SITE_URL='
 
 # Enable plugins in the config file. try to have an LDM entry-point and run it after/ instead of the ckan entrypoint
 
@@ -40,7 +40,7 @@
   args:
     chdir: /home/vagrant/ldm.base/contrib/docker
 
-- name: Start ckan
+- name: Start LDM
   command: docker-compose up -d ckan
   args:
     chdir: /home/vagrant/ldm.base/contrib/docker
