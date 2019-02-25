@@ -4,10 +4,11 @@
     name: docker.io
     state: latest
 
-- name: Install docker-compose
-  package:
-    name: docker-compose
-    state: latest
+# This installs docker-compose 1.8 which is not compatible with docker specification 3
+#- name: Install docker-compose
+#  package:
+#    name: docker-compose
+#   state: latest
 
 - name: Install pip
   package:
@@ -17,3 +18,9 @@
 - name: Install docker-py
   pip:
     name: docker-py
+
+# This insllas the latest version, as of date 1.23.2
+# - name: Install docker-compose
+#  pip:
+#    name: docker-compose
+

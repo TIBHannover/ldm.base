@@ -16,7 +16,7 @@
   args:
     chdir: /home/vagrant/ldm.base/contrib/docker
  
-- name: Remove any existing container as registered in the docker compose file
+- name: Remove existing containers that are registered in the docker compose file
   command: docker-compose rm -f
   args:
     chdir: /home/vagrant/ldm.base/contrib/docker
@@ -32,7 +32,7 @@
     line: '       CKAN_SITE_URL: "http://192.168.98.106:5000"'
     regexp: 'CKAN_SITE_URL'
 
-# Enable plugins in th econfig file. try to have an LDM entry-point and run it after/ instead of the ckan entrypoint
+# Enable plugins in the config file. try to have an LDM entry-point and run it after/ instead of the ckan entrypoint
 
 # This may init docker pull from corresponsing repos
 - name: Start the depenencies
