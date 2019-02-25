@@ -26,11 +26,11 @@
   args:
     chdir: /home/vagrant/ldm.base/contrib/docker
     
-- name: Change site's URL in docker-compose.yml
-  lineinfile:
-    path: '/home/vagrant/ldm.base/contrib/docker/docker-compose.yml'
-    line: '      - CKAN_SITE_URL=http://192.168.98.106:5000
-    regexp: '     - CKAN_SITE_URL='
+# - name: Change site's URL in docker-compose.yml
+#   lineinfile:
+#     path: '/home/vagrant/ldm.base/contrib/docker/docker-compose.yml'
+#     line: '      - CKAN_SITE_URL=http://192.168.98.106:5000
+#     regexp: '     - CKAN_SITE_URL='
 
 # Enable plugins in the config file. try to have an LDM entry-point and run it after/ instead of the ckan entrypoint
 
