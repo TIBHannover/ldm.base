@@ -12,8 +12,4 @@
   vars:
     packages:
       - jq
-
-- name: Install pip
-  package:
-    name: python-pip
-    state: latest
+      - python-pip
