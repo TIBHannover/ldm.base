@@ -1,8 +1,6 @@
 ---
 - name: Update apt to the latest version
-  apt:
-    name: aptitude 
-    upgrade: yes
+  command: apt-get install -y aptitude
 
 - name: Update and upgrade packages
   become: true
