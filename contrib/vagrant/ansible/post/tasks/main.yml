@@ -1,0 +1,22 @@
+---
+- name: Install git
+  package:
+    name: git
+    state: present
+
+export VOL_CKAN_HOME=`docker volume inspect docker_ckan_home | jq -r -c '.[] | .Mountpoint'`
+
+export VOL_CKAN_CONFIG=`docker volume inspect docker_ckan_config | jq -r -c '.[] | .Mountpoint'`
+
+export VOL_CKAN_STORAGE=`docker volume inspect docker_ckan_storage | jq -r -c '.[] | .Mountpoint'`
+
+docker exec -it ckan /usr/local/bin/ckan-paster --plugin=ckan sysadmin -c /etc/ckan/production.ini add admin 
+# paster sysadmin add admin -c /etc/ckan/default/production.ini password: admin
+
+
+#sudo sed -r -i "/ckan.plugins =/ s/$/\ dcatapit_pkg dcatapit_org dcatapit_config/" $VOL_CKAN_CONFIG/production.ini
+
+sudo docker exec -it ckan sed -r -i "/ckan.plugins =/ s/$/\ dcat/" /etc/ckan/production.ini
+sudo docker exec -it ckan sed -r -i "/ckan.plugins =/ s/$/\ tibtheme/" /etc/ckan/production.ini
+sudo docker exec -it ckan sed -r -i "/ckan.plugins =/ s/$/\ videoviewer/" /etc/ckan/production.ini
+sudo docker exec -it ckan sed -r -i "/ckan.plugins =/ s/$/\ dwgviewer/" /etc/ckan/production.ini
