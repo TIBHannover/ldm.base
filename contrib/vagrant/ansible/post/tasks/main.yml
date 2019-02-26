@@ -1,3 +1,23 @@
 ---
-- name: Export directories to be visiable through the host
-  command: export VOL_CKAN_HOME=`docker volume inspect docker_ckan_home | jq -r -c '.[] | .Mountpoint'`
+#- name: Export directories to be visiable through the host - ckan HOME
+#  command: export VOL_CKAN_HOME=`docker volume inspect docker_ckan_home | jq -r -c '.[] | .Mountpoint'`
+  
+#- name: Export directories to be visiable through the host - ckan CONFIG
+#  command: export VOL_CKAN_CONFIG=`docker volume inspect docker_ckan_config | jq -r -c '.[] | .Mountpoint'`
+
+#- name: Export directories to be visiable through the host - ckan STORAGE
+#  command: export VOL_CKAN_STORAGE=`docker volume inspect docker_ckan_storage | jq -r -c '.[] | .Mountpoint'`
+  
+#- name: Create sysadmin user
+#  command: docker exec -it ckan /usr/local/bin/ckan-paster --plugin=ckan sysadmin -c /etc/ckan/production.ini add admin 
+  
+#- name:  Populate data
+
+
+- name:  Insatll plugins - dcat
+  - pip:
+    name: git+https://github.com/ckan/ckanext-dcat.git#egg=ckanext-dcat
+    requirements: /usr/lib/ckan/src/ckanext-dcat/requirements.txt
+
+- name:  Enable plugins - dcat
+  command: docker exec -it ckan sed -r -i "/ckan.plugins =/ s/$/\ dcat/" /etc/ckan/production.ini    
