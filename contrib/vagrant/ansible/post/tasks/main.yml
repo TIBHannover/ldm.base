@@ -16,12 +16,7 @@
 #  Insatll plugins - dcat
 - pip:
     name: git+https://github.com/ckan/ckanext-dcat.git#egg=ckanext-dcat
+- pip:
     requirements: /usr/lib/ckan/src/ckanext-dcat/requirements.txt
-
-#- name:  Insatll plugins - dcat
-#  - pip:
-#    name: git+https://github.com/ckan/ckanext-dcat.git#egg=ckanext-dcat
-#    requirements: /usr/lib/ckan/src/ckanext-dcat/requirements.txt
-
 - name:  Enable plugins - dcat
   command: docker exec -it ckan sed -r -i "/ckan.plugins =/ s/$/\ dcat/" /etc/ckan/production.ini    

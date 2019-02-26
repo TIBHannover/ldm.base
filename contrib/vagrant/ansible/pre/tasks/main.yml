@@ -1,4 +1,9 @@
 ---
+- name: Update apt to the latest version
+  apt:
+    name: aptitude 
+    upgrade: yes
+
 - name: Update and upgrade packages
   become: true
   apt:
