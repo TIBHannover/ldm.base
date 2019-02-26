@@ -1,4 +1,3 @@
 ---
-tasks:
-  - name: Export directories to be visiable through the host
-    command: export VOL_CKAN_HOME=`docker volume inspect docker_ckan_home | jq -r -c '.[] | .Mountpoint'`
+- name: Export directories to be visiable through the host
+  command: export VOL_CKAN_HOME=`docker volume inspect docker_ckan_home | jq -r -c '.[] | .Mountpoint'`
