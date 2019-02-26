@@ -6,9 +6,14 @@
     update_cache: yes
     cache_valid_time: 86400 #One day
     
-- name: Install a required packages
+- name: Install required packages
   apt:
     name: "{{ packages }}"
   vars:
     packages:
-    - jq
+      - jq
+
+- name: Install pip
+  package:
+    name: python-pip
+    state: latest
