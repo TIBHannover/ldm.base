@@ -53,10 +53,14 @@ RUN ckan-pip install -U pip && \
     chmod +x /ckan-entrypoint.sh && \
     chown -R ckan:ckan $CKAN_HOME $CKAN_VENV $CKAN_CONFIG $CKAN_STORAGE_PATH
 
+# production.ini file is not yet created, hence it is not possible to enable the plugins here. Therefore, here a production.ini is built.
+RUN ckan-paster make-config --no-interactive ckan "$CKAN_CONFIG/production.ini"
+
 # Plugins
 RUN git clone https://github.com/ckan/ckanext-dcat.git $CKAN_VENV/src/ckanext-dcat && \
 ckan-pip install -e $CKAN_VENV/src/ckanext-dcat && \		
-pip install -r $CKAN_VENV/src/ckanext-dcat/requirements.txt
+pip install -r $CKAN_VENV/src/ckanext-dcat/requirements.txt && \
+sed -r -i "/ckan.plugins =/ s/$/\ dcat/" $CKAN_CONFIG/production.ini
 
 RUN git clone https://github.com/tibhannover/ckanext-tibtheme.git $CKAN_VENV/src/ckanext-tibtheme && \
 ckan-pip install -e $CKAN_VENV/src/ckanext-tibtheme && \		
@@ -70,10 +74,8 @@ RUN git clone https://github.com/tibhannover/ckanext-dwgviewer.git $CKAN_VENV/sr
 ckan-pip install -e $CKAN_VENV/src/ckanext-dwgviewer && \		
 pip install -r $CKAN_VENV/src/ckanext-dwgviewer/requirements.txt
 
-# production.ini file is not yet created, hence it is not possible to enable the plugins here. Therefore, here a production.ini is built.
-RUN ckan-paster make-config --no-interactive ckan "$CKAN_CONFIG/production.ini"
 
-RUN sed -r -i "/ckan.plugins =/ s/$/\ dcat/" $CKAN_CONFIG/production.ini
+
 
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 
