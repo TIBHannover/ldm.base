@@ -53,6 +53,25 @@ RUN ckan-pip install -U pip && \
     chmod +x /ckan-entrypoint.sh && \
     chown -R ckan:ckan $CKAN_HOME $CKAN_VENV $CKAN_CONFIG $CKAN_STORAGE_PATH
 
+# Plugins
+RUN git clone https://github.com/ckan/ckanext-dcat.git $CKAN_VENV/src/ckanext-dcat && \
+ckan-pip install -e $CKAN_VENV/src/ckanext-dcat && \		
+pip install -r $CKAN_VENV/src/ckanext-dcat/requirements.txt
+
+RUN git clone https://github.com/tibhannover/ckanext-tibtheme.git $CKAN_VENV/src/ckanext-tibtheme && \
+ckan-pip install -e $CKAN_VENV/src/ckanext-tibtheme && \		
+pip install -r $CKAN_VENV/src/ckanext-tibtheme/requirements.txt
+
+RUN git clone https://github.com/tibhannover/ckanext-videoviewer.git $CKAN_VENV/src/ckanext-videoviewer && \
+ckan-pip install -e $CKAN_VENV/src/ckanext-videoviewer && \		
+pip install -r $CKAN_VENV/src/ckanext-videoviewer/requirements.txt
+
+RUN git clone https://github.com/tibhannover/ckanext-dwgviewer.git $CKAN_VENV/src/ckanext-dwgviewer && \
+ckan-pip install -e $CKAN_VENV/src/ckanext-dwgviewer && \		
+pip install -r $CKAN_VENV/src/ckanext-dwgviewer/requirements.txt
+
+# production.ini file is not yet created, hence it is not possible to enable the plugins here. They will be enabled outside in the Ansible's post play.
+
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 
 USER ckan
