@@ -73,7 +73,7 @@ pip install -r $CKAN_VENV/src/ckanext-dwgviewer/requirements.txt
 # production.ini file is not yet created, hence it is not possible to enable the plugins here. Therefore, here a production.ini is built.
 RUN ckan-paster make-config --no-interactive ckan "$CKAN_CONFIG/production.ini"
 
-# RUN ckan sed -r -i "/ckan.plugins =/ s/$/\ dcat/" $CKAN_CONFIG/production.ini
+RUN sed -r -i "/ckan.plugins =/ s/$/\ dcat/" $CKAN_CONFIG/production.ini
 
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 
