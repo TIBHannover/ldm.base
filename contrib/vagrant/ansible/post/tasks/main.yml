@@ -12,3 +12,6 @@
 #  command: docker exec -it ckan /usr/local/bin/ckan-paster --plugin=ckan sysadmin -c /etc/ckan/production.ini add admin 
   
 #- name:  Populate data
+
+#- name:  Enable plugins - dcat
+#  command: docker exec ckan sed -r -i "/ckan.plugins =/ s/$/\ dcat/" /etc/ckan/production.ini
