@@ -1,4 +1,4 @@
-CKAN: The Open Source Data Portal Software
+LDM.Base: The Liebniz Data Manager (Base Distribution)
 ==========================================
 
 .. image:: https://img.shields.io/badge/license-AGPL-blue.svg?style=flat
@@ -20,64 +20,47 @@ CKAN: The Open Source Data Portal Software
     :target: https://coveralls.io/github/ckan/ckan?branch=master
     :alt: Coverage Status
 
-**CKAN is the world’s leading open-source data portal platform**.
-CKAN makes it easy to publish, share and work with data. It's a data management
-system that provides a powerful platform for cataloging, storing and accessing
-datasets with a rich front-end, full API (for both data and catalog), visualization
-tools and more. Read more at `ckan.org <http://ckan.org/>`_.
+**LDM is an open source data portal platform**.
+LDM is based on`CKAN<http://ckan.org/>`. It hase a base distribution that comes with a set of curated extensions. 
+Domain-specific data portals can further custome it towards their need needs by forking from the base.
 
 
 Installation
 ------------
 
-See the `CKAN Documentation <http://docs.ckan.org>`_ for installation instructions.
+See the `LDM Documentation <https://github.com/tibhannover/ldm.base/wiki/installation>`_ for installation instructions.
 
 
 Support
 -------
-For general discussion around CKAN, you can write to the `Google Group`_.
+For general discussion around LDM, you can write to the `Google Group`_.
 
-If you need help with CKAN or want to ask a question, use either the
-`ckan-dev`_ mailing list or the `CKAN tag on Stack Overflow`_ (try
-searching the Stack Overflow and ckan-dev `archives`_ for an answer to your
-question first).
+If you need help with LDM or want to ask a question, use either the
+`ldm-dev`_ mailing list or the `LDM tag on Stack Overflow`_.
 
-If you've found a bug in CKAN, open a new issue on CKAN's `GitHub Issues`_ (try
+If you have found a bug in LDM, open a new issue on LDM's `GitHub Issues`_ (try
 searching first to see if there's already an issue for your bug).
 
 If you find a potential security vulnerability please email security@ckan.org,
 rather than creating a public issue on GitHub.
 
-.. _Google Group: https://groups.google.com/forum/#!forum/ckan-global-user-group
-.. _CKAN tag on Stack Overflow: http://stackoverflow.com/questions/tagged/ckan
-.. _ckan-dev: https://lists.okfn.org/mailman/listinfo/ckan-dev
-.. _archives: https://www.google.com/search?q=%22%5Bckan-dev%5D%22+site%3Alists.okfn.org.
-.. _GitHub Issues: https://github.com/ckan/ckan/issues
+.. _Google Group: https://groups.google.com/forum/#!forum/ldm-global-user-group
+.. _LDM tag on Stack Overflow: http://stackoverflow.com/questions/tagged/ldm
+.. _ldm-dev: https://lists.tib.eu/mailman/listinfo/ldm-dev
+.. _GitHub Issues: https://github.com/tibhannover/ldm.base/issues
 
 
-Contributing to CKAN
+Contributing to LDM
 --------------------
 
-For contributing to CKAN or its documentation, see
-`CONTRIBUTING <https://github.com/ckan/ckan/blob/master/CONTRIBUTING.rst>`_.
-
-If you want to talk about CKAN development say hi to the CKAN developers on the
-`ckan-dev`_ mailing list, in the `#ckan`_ IRC channel, or on `BotBot`_.
-
-If you've figured out how to do something with CKAN and want to document it for
-others, make a new page on the `CKAN wiki`_, and tell us about it on
-ckan-dev mailing list.
-
-.. _ckan-dev: http://lists.okfn.org/mailman/listinfo/ckan-dev
-.. _#ckan: http://webchat.freenode.net/?channels=ckan
-.. _CKAN Wiki: https://github.com/ckan/ckan/wiki
-.. _BotBot: https://botbot.me/freenode/ckan/
+For contributing to LDM or its documentation, see
+`CONTRIBUTING <https://github.com/tibhannover/ldm.base/wiki/contrib>`_.
 
 
 Copying and License
 -------------------
 
-This material is copyright (c) 2006-2018 Open Knowledge International and contributors.
+This material is copyright (c) 2006-2018 Open Knowledge International, TIB Hannover, and contributors.
 
 It is open and licensed under the GNU Affero General Public License (AGPL) v3.0
 whose full text may be found at:
