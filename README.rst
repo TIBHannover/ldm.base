@@ -20,8 +20,8 @@ LDM.Base: The Liebniz Data Manager (Base Distribution)
     :target: https://coveralls.io/github/ckan/ckan?branch=master
     :alt: Coverage Status
 
-**LDM is an open source data portal platform**.
-LDM is based on [CKAN](http://ckan.org/). It hase a base distribution that comes with a set of curated extensions. 
+**LDM is an open source data portal platform**, based on `CKAN <http://ckan.org/>`_.
+It hase a base distribution that comes with a set of curated extensions. 
 Domain-specific data portals can further custome it towards their need needs by forking from the base.
 
 
